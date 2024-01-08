@@ -5,7 +5,7 @@ on:
       - check_python_version
 jobs:
   check-python-version:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Set up Python 3.11
         uses: actions/setup-python@v2
