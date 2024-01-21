@@ -3,8 +3,8 @@ name: check_syntax
 on:
   push:
     branches:
+      - check_syntax
       - main
-
 jobs:
   check-syntax:
     runs-on: windows-latest
@@ -31,9 +31,5 @@ jobs:
       run: |
         python --version
 
-    - name: Run flake8
-      run: |
-        flake8
-
-      run: |
-        flake8
+    - name: Run unittest
+      run: python -m unittest test
