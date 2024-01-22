@@ -1,35 +1,38 @@
-name: check_syntax
+name: Check Syntax
 
 on:
   push:
     branches:
-      - check_syntax
-      - main
-jobs:
-  check-syntax:
-    runs-on: windows-latest
+      
+check_syntax
 
+jobs:
+  syntax-checker:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.9, 3.10, 3.11]
+        python-version: ["3.9", "3.10", "3.11"]
 
     steps:
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
+    
+uses: actions/checkout@v2
 
-    - name: Update pip
-      run: |
-        python -m pip install --upgrade pip
+    
+name: Set up Python ${{ matrix.python-version }}
+    uses: actions/setup-python@v2
+    with:
+      python-version: ${{ matrix.python-version }}
 
-    - name: Install flake8
-      run: |
-        python -m pip install flake8
+    
+name: Install dependencies
+    run: |
+      python -m pip install --upgrade pip
+      pip install flake8
 
-    - name: Display Python version
-      run: |
-        python --version
+    
+name: Display Python version
+    run: python --version
 
-    - name: Run unittest
-      run: python -m unittest test
+    
+name: Check code with flake8
+    run: flake8 .
