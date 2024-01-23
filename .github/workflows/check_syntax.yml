@@ -1,10 +1,7 @@
-name: Check Syntax Workflow
+name: Check Syntax
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
     branches:
       - check_syntax
 
