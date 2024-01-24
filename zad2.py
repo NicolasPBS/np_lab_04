@@ -14,8 +14,9 @@ def divide_numbers(a, b):
 
 if __name__ == "__main__":
     num1 = 10
-    num2 = 5
+    num2 = 3
     print(f"Dodawanie: {add_numbers(num1, num2)}")
     print(f"Odejmowanie: {subtract_numbers(num1, num2)}")
     print(f"Mnożenie: {multiply_numbers(num1, num2)}")
     print(f"Dzielenie: {divide_numbers(num1, num2)}")
+	
