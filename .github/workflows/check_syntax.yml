@@ -1,12 +1,16 @@
-name: check_syntax
+name: Check Syntax
 
 on:
   push:
     branches:
-      - main
+      - check_syntax
 
 jobs:
+<<<<<<< HEAD
   check-syntax:
+=======
+  syntax-check:
+>>>>>>> c9d96884da58a531bcc22e94027bb8f3717bb5a7
     runs-on: ubuntu-latest
 
     strategy:
@@ -20,20 +24,15 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Update pip
-      run: |
-        python -m pip install --upgrade pip
+      run: python -m pip install --upgrade pip
 
-    - name: Install flake8
+    - name: Install_flake8
       run: |
-        python -m pip install flake8
+       python -m pip install flake8
 
     - name: Display Python version
       run: |
         python --version
 
     - name: Run flake8
-      run: |
-        flake8
-
-      run: |
-        flake8
+      run: flake8 
